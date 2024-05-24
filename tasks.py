@@ -2,7 +2,7 @@ from crewai import Task
 
 class TextGenTasks:
 
-    def contentPlan(self, agent, topic, llm):
+    def contentPlan(self, agent, llm):
         return Task(
             description=(
         "1. Prioritize the latest trends, key players, "
@@ -21,7 +21,7 @@ class TextGenTasks:
             
         )
     
-    def contentWrite(self, agent, topic, llm):
+    def contentWrite(self, agent, llm):
         return Task(
             description=(
         "1. Use the content plan to craft a compelling "
@@ -49,7 +49,8 @@ class TextGenTasks:
                  "alignment with the brand's voice."),
             expected_output="A well-written blog post in markdown format, "
                             "ready for publication, "
-                            "each section should have 2 or 3 paragraphs without anything but the blog post",
+                            "each section should have 2 or 3 paragraphs without anything but the blog post"
+                            "The headings should start with '# ' ",
             llm = llm,
-            agent=agent
+            agent=agent,
         )

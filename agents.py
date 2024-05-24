@@ -15,7 +15,8 @@ class TextGenAgents:
               "the Content Writer to write an article on this topic.",
             allow_delegation = False,
             llm = llm,
-            verbose = True
+            verbose = True,
+            __cached__ = False
         )
     
     def contentWriter(self, llm):
@@ -47,7 +48,9 @@ class TextGenAgents:
         return Agent(
             role="Editor",
             goal="Edit a given blog post to align with "
-                "the writing style of the organization. ",
+                "the writing style of the organization. "
+                "Do not include sentences that are polite closings like "
+                " 'I hope this helps ' etc. ",
             backstory="You are an editor who receives a blog post "
                     "from the Content Writer. "
                     "Your goal is to review the blog post "
